@@ -1,0 +1,14 @@
+name: Hello World
+on: 
+  pull_request:
+    types: [opened, reopened]
+  # workflow_dispatch:
+jobs:
+ my-job:
+   runs-on: ubuntu-latest
+   steps:
+
+   - name: event triggered data
+     run: |
+        cat "$GITHUB_EVENT_PATH)"
+        echo "The action was: $(jq -r '.action' $GITHUB_EVENT_PATH)"
